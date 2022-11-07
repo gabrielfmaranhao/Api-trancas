@@ -12,17 +12,21 @@ const createClientController = async ( req: Request, res: Response ) => {
         const create = await createClientService(name, inst);
         return res.status(200).json(create);
     } catch (error) {
-        if( error instanceof AppError) {
+        if (error instanceof AppError) {
             return res.status(error.status).json({status: error.status, message: error.message})
         }
     }
-}//ok
+}
 
 const listClientController = async ( req: Request, res: Response ) => {
-    
-    const list = await listClientService()
-    return res.status(201).json(list);
-
+    try {
+        const list = await listClientService()
+        return res.status(201).json(list);
+    } catch (error) {
+        if (error instanceof AppError) {
+            return res.status(error.status).json({status: error.status, message: error.message})
+        }
+    }
 }//ok
 
 const listClientInstController =async (req:Request, res: Response) => {
@@ -31,22 +35,23 @@ const listClientInstController =async (req:Request, res: Response) => {
         const client = await listClientInstService(inst);
         return res.status(201).json(client)
     } catch (error) {
-        if( error instanceof AppError) {
+        if (error instanceof AppError) {
             return res.status(error.status).json({status: error.status, message: error.message})
         }
     }
 }// ok
 const updateClientController = async ( req:Request, res: Response ) => {
-try {
-    const date:IClientUpdate = req.body;
-    const id:string = req.params.id
-    const client = await updateClientService(date,id)
-    return res.status(200).json(client);
-} catch (error) {
-    if( error instanceof AppError) {
-        return res.status(error.status).json({status: error.status, message: error.message})
+    try {
+        const date:IClientUpdate = req.body;
+        const id:string = req.params.id
+        const client = await updateClientService(date,id)
+        return res.status(200).json(client);
+        
+    } catch (error) {
+        if (error instanceof AppError) {
+            return res.status(error.status).json({status: error.status, message: error.message})
+        }
     }
-}
 } //ok
 
 const deleteClientController = async ( req: Request, res: Response ) => {
@@ -54,11 +59,13 @@ const deleteClientController = async ( req: Request, res: Response ) => {
         const id: string = req.params.id
         await deleteClientService(id);
         return res.status(200).json({message:"client excluido"})
+        
     } catch (error) {
-        if( error instanceof AppError) {
+        if (error instanceof AppError) {
             return res.status(error.status).json({status: error.status, message: error.message})
         }
     }
+    
 }
 
 export { createClientController, listClientController, listClientInstController, updateClientController, deleteClientController }

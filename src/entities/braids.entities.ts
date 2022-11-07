@@ -6,25 +6,25 @@ class Braids {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column({})
+    @Column({nullable: true})
     type: string
 
-    @Column({})
+    @Column({nullable: true})
     price: number
 
-    @Column({})
+    @Column({nullable: true})
     time: string
 
-    @Column({})
+    @Column({nullable: true})
     date: Date
 
-    @Column({})
+    @Column({nullable: true})
     image_p: string
 
-    @Column({})
+    @Column({nullable: true})
     imagem_s: string
 
-    @ManyToOne(()=> Cliente)
+    @ManyToOne(()=> Cliente, cliente => cliente.braids, {onDelete:"CASCADE"})
     client: Cliente
 }
 

@@ -8,7 +8,7 @@ const deleteClientService = async (id:string) => {
     if(!findClient) {
         throw new AppError(400,"Client is not exists")
     }
-    await clientRepository.delete(findClient)
+    await clientRepository.delete({id: findClient.id})
 }
 
 export default deleteClientService
