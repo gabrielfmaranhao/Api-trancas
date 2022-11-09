@@ -1,7 +1,8 @@
 {
   "name": "api-trancas",
   "version": "1.0.0",
-  "main": "index.js",
+  "engines": {"node": "16.17.0"},
+  "main": "server.js",
   "author": "Gabriel Maranhao <gabrielmaranhao48@gmail.com>",
   "license": "MIT",
   "devDependencies": {
