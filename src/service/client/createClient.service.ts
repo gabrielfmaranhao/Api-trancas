@@ -7,7 +7,7 @@ const createClientService = async (name :string, inst: string): Promise<Cliente>
     const clientRepository = AppDataSource.getRepository(Cliente);
     const clientFind = await clientRepository.findOneBy({inst: inst});
     if(clientFind) {
-        throw new AppError(401, "Client is exist")
+        throw new AppError(400, "Client is exist")
     }
     const client = clientRepository.create({name, inst});
     await  clientRepository.save(client);

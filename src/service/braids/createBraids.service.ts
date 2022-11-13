@@ -2,7 +2,6 @@ import Braids from "../../entities/braids.entities";
 import Cliente from "../../entities/cliente.entities";
 import AppDataSource from "../../data-source";
 import { AppError } from "../../errors/errors";
-import { IBraidsRequest, IBraidsResponse } from "../../interfaces/braids";
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs"
 

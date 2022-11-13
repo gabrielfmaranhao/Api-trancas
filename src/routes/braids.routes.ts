@@ -10,6 +10,6 @@ braidsRoutes.get("", listBraidsController) // lista todas as Trancas
 braidsRoutes.post("", authTokenMiddlewares, upload.single('image'), verifySerialization(createBraidsSerializer), createBraidsController) // cria uma nova tranca 
 braidsRoutes.delete("/:id", authTokenMiddlewares, deleteBraidsController) // deleção de trança 
 braidsRoutes.patch("/:id", authTokenMiddlewares, upload.single('image'), verifySerialization(updateBraidsSerializer), updateBraidsController) // atualização de tranca
-braidsRoutes.get("/:insta", listClientBraidController) // encontrar tranca por instagram de cliente
+braidsRoutes.get("/:inst", listClientBraidController) // encontrar tranca por instagram de cliente
 
 export default braidsRoutes

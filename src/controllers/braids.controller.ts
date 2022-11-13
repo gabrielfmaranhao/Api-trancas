@@ -36,7 +36,7 @@ const updateBraidsController = async (req: Request, res: Response) => {
 
 const listBraidsController = async ( req:Request, res: Response) => {
     const listBraids = await listBraidsService();
-    return res.status(201).json(listBraids);
+    return res.status(200).json(listBraids);
 } // OK
 
 const deleteBraidsController = async ( req: Request, res: Response) => {

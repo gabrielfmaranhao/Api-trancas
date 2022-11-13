@@ -6,6 +6,7 @@ const createClientSerializer = yup.object().shape({
 });
 
 const updateClientSerializer = yup.object().shape({
-    inst: yup.string().required("Inst é um campo requirido")
+    inst: yup.string().notRequired(),
+    name: yup.string().notRequired()
 })
 export {createClientSerializer, updateClientSerializer}

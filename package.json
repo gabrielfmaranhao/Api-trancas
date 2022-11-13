@@ -1,7 +1,9 @@
 {
   "name": "api-trancas",
   "version": "1.0.0",
-  "engines": {"node": "18.x"},
+  "engines": {
+    "node": "18.x"
+  },
   "main": "server.js",
   "author": "Gabriel Maranhao <gabrielmaranhao48@gmail.com>",
   "license": "MIT",
@@ -19,7 +21,8 @@
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "build": "tsc",
-    "start": "node dist/src/server.js"
+    "start": "node dist/server.js",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@types/multer": "^1.4.7",

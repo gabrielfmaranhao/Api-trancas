@@ -6,28 +6,29 @@ import listClientService from "../service/client/listClient.service";
 import listClientInstService from "../service/client/listClientInst.service";
 import updateClientService from "../service/client/updateClient.service";
 import deleteClientService from "../service/client/deleteClient.service";
+
 const createClientController = async ( req: Request, res: Response ) => { 
     try {
         const {name, inst}: IClientRequest = req.body;
         const create = await createClientService(name, inst);
-        return res.status(200).json(create);
+        return res.status(201).json(create);
     } catch (error) {
         if (error instanceof AppError) {
             return res.status(error.status).json({status: error.status, message: error.message})
         }
     }
-}
+} //OK
 
 const listClientController = async ( req: Request, res: Response ) => {
     try {
         const list = await listClientService()
-        return res.status(201).json(list);
+        return res.status(200).json(list);
     } catch (error) {
         if (error instanceof AppError) {
             return res.status(error.status).json({status: error.status, message: error.message})
         }
     }
-}//ok
+}//OK
 
 const listClientInstController =async (req:Request, res: Response) => {
     try {
@@ -45,7 +46,7 @@ const updateClientController = async ( req:Request, res: Response ) => {
         const date:IClientUpdate = req.body;
         const id:string = req.params.id
         const client = await updateClientService(date,id)
-        return res.status(200).json(client);
+        return res.status(201).json(client);
         
     } catch (error) {
         if (error instanceof AppError) {
